@@ -34,15 +34,16 @@ def GetList(n):
 def ClosestElementToX(x, listElements):
 
     clEl = listElements[0]
-    difference = x - clEl
+    difference = abs(x - clEl)
 
     for g in range(1, len(listElements)):
 
-        elDifference = x - listElements[g]
+        elDifference = abs(x - listElements[g])
 
         if difference > elDifference:
 
             clEl = listElements[g]
+            difference = elDifference
 
     return clEl
 
@@ -50,6 +51,7 @@ def ClosestElementToX(x, listElements):
 newList = GetList(num)
 result = ClosestElementToX(хNum, newList)
 
-print(newList, result, sep="\n")
+print(*newList)
+print(result)
 
 # ========================================================================
