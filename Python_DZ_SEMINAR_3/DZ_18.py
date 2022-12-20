@@ -18,4 +18,19 @@ num = int(input("Ведите N размер массива, который вы
 
 numMax = int(num / 2)
 
+def GetList(n, nMax):
+
+    import random
+
+    l = []
+
+    for i in range(n):
+
+        random_number = round(random.randint(1, nMax))
+        l.append(random_number)
+
+    return l
+
+
+
 # ========================================================================
