@@ -1,7 +1,7 @@
 # Задача 16:
 # Требуется вычислить, сколько раз встречается некоторое число X в массиве A[1..N].
 # Пользователь вводит натуральное число N – количество элементов в массиве и число, которое необходимо проверить - X.
-# Заполните массив случайными натуральными числами от 1 до N/2.
+# Заполните массив случайными натуральными числами от 1 до N.
 # Выведите, сколько раз X встречается в массиве.
 
 # Ввод: 5
@@ -15,12 +15,10 @@
 # Решение:
 
 num = int(input("Ведите N размер массива, который вы хотите заполнить: "))
-хNum = int(input("Нужное число, которое может быть от 1 до N/2: "))
-
-numMax = int(num / 2)
+хNum = int(input("Нужное число, которое может быть от 1 до N: "))
 
 
-def GetList(n, nMax):
+def GetList(n):
 
     import random
 
@@ -28,7 +26,7 @@ def GetList(n, nMax):
 
     for i in range(n):
 
-        random_number = round(random.randint(1, nMax))
+        random_number = round(random.randint(1, n))
         l.append(random_number)
 
     return l
@@ -49,9 +47,9 @@ def ElemntsXList(x, listElements):
 
 newList = result = 0
 
-if numMax >= хNum >= 1:
+if хNum >= хNum >= 1:
 
-    newList = GetList(num, numMax)
+    newList = GetList(num)
     result = ElemntsXList(хNum, newList)
 
     print(newList, result, sep="\n")
