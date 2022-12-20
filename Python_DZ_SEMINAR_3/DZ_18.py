@@ -18,6 +18,7 @@ num = int(input("Ведите N размер массива, который вы
 
 numMax = int(num / 2)
 
+
 def GetList(n, nMax):
 
     import random
@@ -32,5 +33,19 @@ def GetList(n, nMax):
     return l
 
 
+def ClosestElementToX(x, listElements):
+
+    clEl = listElements[0]
+    difference = x - clEl
+
+    for g in range(1, len(listElements)):
+
+        elDifference = x - listElements[g]
+
+        if difference > elDifference:
+
+            clEl = listElements[g]
+
+    return clEl
 
 # ========================================================================
