@@ -34,6 +34,11 @@ def get_list(len_list: int, min_n: int, max_n: int) -> list:
 
     l = []
 
+    # if len_list == 1:
+    #     random_number = round(random.randint(min_n, max_n))
+    #     l.append(random_number)
+    #     return l
+
     for i in range(len_list):
 
         random_number = round(random.randint(min_n, max_n))
@@ -47,10 +52,7 @@ def max_sum_3_elements(start_list: list) -> int:
     central_index = -1
     rigth_index = 0
     len_list = len(start_list)
-    new_sum = 0
-    max_sum = start_list[left_index] + \
-                    start_list[central_index] + \
-                    start_list[rigth_index]
+    max_sum = new_sum = 0
 
     if len_list > 3:
         for g in range(len_list - 1):
@@ -58,15 +60,17 @@ def max_sum_3_elements(start_list: list) -> int:
             central_index += 1
             rigth_index += 1
             new_sum = start_list[left_index] + \
-                    start_list[central_index] + \
-                    start_list[rigth_index]
-            
+                start_list[central_index] + \
+                start_list[rigth_index]
+
             if max_sum < new_sum:
-                max_sum = new_sum   
+                max_sum = new_sum
 
     else:
-        if len_list == 0:
-            max_sum = 0
+        if len_list == 3:
+            max_sum = start_list[left_index] + \
+                start_list[central_index] + \
+                start_list[rigth_index]
         elif len_list == 1:
             max_sum = start_list[central_index]
         elif len_list == 2:
@@ -80,7 +84,6 @@ max_sum_3 = max_sum_3_elements(list_elemens)
 
 print(*list_elemens)
 print(max_sum_3)
-
 
 
 # =============================================================================
