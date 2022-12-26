@@ -18,7 +18,28 @@
 
 # Решение:
 
-numN = int(input("n - кол-во элементов первого набора: "))
-numM = int(input("m - кол-во элементов второго набора: "))
+num_n = int(input("n - кол-во элементов первого набора: "))
+num_m = int(input("m - кол-во элементов второго набора: "))
+
+
+def get_list(n: int, min_n: int, max_n: int) -> list:
+
+    import random
+
+    l = []
+
+    for i in range(n):
+
+        random_number = round(random.randint(min_n, max_n))
+        l.append(random_number)
+
+    return l
+
+
+list_random_n = get_list(num_n, 0, 20)
+list_random_m = get_list(num_m, 0, 20)
+
+print(*list_random_n)
+print(*list_random_m)
 
 # =============================================================================
