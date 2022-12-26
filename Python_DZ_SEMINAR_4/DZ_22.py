@@ -39,7 +39,11 @@ def get_list(n: int, min_n: int, max_n: int) -> list:
 list_random_n = get_list(num_n, 0, 20)
 list_random_m = get_list(num_m, 0, 20)
 
+n_m = set(list_random_n).union(set(list_random_m))
+
 print(*list_random_n)
 print(*list_random_m)
+print(*n_m)
+
 
 # =============================================================================
