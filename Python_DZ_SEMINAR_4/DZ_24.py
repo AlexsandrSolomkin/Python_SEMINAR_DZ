@@ -25,7 +25,7 @@
 
 # Решение:
 
-num = int(input("Количество костов на грядке: "))
+num = int(input("Количество кустов на грядке: "))
 
 
 def get_list(len_list: int, min_n: int, max_n: int) -> list:
@@ -42,9 +42,44 @@ def get_list(len_list: int, min_n: int, max_n: int) -> list:
     return l
 
 
+def max_sum_3_elements(start_list: list) -> int:
+    left_index = -2
+    central_index = -1
+    rigth_index = 0
+    len_list = len(start_list)
+    new_sum = 0
+    max_sum = start_list[left_index] + \
+                    start_list[central_index] + \
+                    start_list[rigth_index]
+
+    if len_list > 3:
+        for g in range(len_list - 1):
+            left_index += 1
+            central_index += 1
+            rigth_index += 1
+            new_sum = start_list[left_index] + \
+                    start_list[central_index] + \
+                    start_list[rigth_index]
+            
+            if max_sum < new_sum:
+                max_sum = new_sum   
+
+    else:
+        if len_list == 0:
+            max_sum = 0
+        elif len_list == 1:
+            max_sum = start_list[central_index]
+        elif len_list == 2:
+            max_sum = start_list[central_index] + start_list[rigth_index]
+
+    return max_sum
+
+
 list_elemens = get_list(num, 1, 20)
+max_sum_3 = max_sum_3_elements(list_elemens)
 
 print(*list_elemens)
+print(max_sum_3)
 
 
 
