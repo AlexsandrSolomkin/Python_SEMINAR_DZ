@@ -31,3 +31,31 @@
 # .
 # После выбора действия выполняется функция, реализующая это действие.
 # После завершения работы функции пользователь возвращается в меню.
+
+# ==================================================================================
+
+# Решение:
+
+fileName = "tel.txt"
+
+
+def readFile(file_name):
+    result = []
+    with open(file_name, "r+", encoding="utf-8") as data:
+        for line in data:
+            result.append(line.split())
+        return result
+
+
+def findUsers(userList):
+    name = "Иван,"
+
+    for user in userList:
+        if user[1] == name:
+            print(user[3])
+
+
+print(readFile(fileName))
+findUsers(readFile(fileName))
+
+# ==================================================================================
